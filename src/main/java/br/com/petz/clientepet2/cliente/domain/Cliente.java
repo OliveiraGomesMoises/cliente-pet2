@@ -7,7 +7,10 @@ import java.util.UUID;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.lang.NonNull;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -20,6 +23,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Cliente {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", updatable = false, unique = true, nullable = false)
 	private UUID idCliente;
 	@NotBlank
 	private String nomeComoleto;
@@ -28,7 +33,7 @@ public class Cliente {
 	private String email;
 	@NotBlank
 	private String celular;
-	
+
 	private String telefone;
 	private Sexo sexo;
 	@NonNull
@@ -37,14 +42,12 @@ public class Cliente {
 	private String cpf;
 	@NonNull
 	private Boolean aceitaTermos;
-	
+
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
-	
-	
+
 	public Cliente(@NotBlank String nomeComoleto, @NotBlank @Email String email, @NotBlank String celular,
 			String telefone, Sexo sexo, LocalDate dataNascimento, @CPF String cpf, Boolean aceitaTermos) {
-		this.idCliente = UUID.randomUUID();
 		this.nomeComoleto = nomeComoleto;
 		this.email = email;
 		this.celular = celular;
@@ -54,7 +57,6 @@ public class Cliente {
 		this.cpf = cpf;
 		this.aceitaTermos = aceitaTermos;
 		this.dataHoraDoCadastro = LocalDateTime.now();
-	
-	
-}
+
+	}
 }
