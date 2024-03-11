@@ -2,8 +2,10 @@ package br.com.petz.clientepet2.cliente.application.api;
 
 import java.util.UUID;
 
+import lombok.Builder;
 import lombok.Value;
 @Value
-public class ClienteRespose {
+@Builder
+public class ClienteResponse {
 	private UUID idCliente;
 }

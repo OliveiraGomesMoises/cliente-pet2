@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.lang.NonNull;
 
+import br.com.petz.clientepet2.cliente.application.api.ClienteRequeste;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -46,16 +47,15 @@ public class Cliente {
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 
-	public Cliente(@NotBlank String nomeComoleto, @NotBlank @Email String email, @NotBlank String celular,
-			String telefone, Sexo sexo, LocalDate dataNascimento, @CPF String cpf, Boolean aceitaTermos) {
-		this.nomeComoleto = nomeComoleto;
-		this.email = email;
-		this.celular = celular;
-		this.telefone = telefone;
-		this.sexo = sexo;
-		this.dataNascimento = dataNascimento;
-		this.cpf = cpf;
-		this.aceitaTermos = aceitaTermos;
+	public Cliente(ClienteRequeste clienteRequeste) {
+		this.nomeComoleto = clienteRequeste.getNomeComoleto();
+		this.email = clienteRequeste.getEmail();
+		this.celular = clienteRequeste.getCelular();
+		this.telefone = clienteRequeste.getTelefone();
+		this.sexo = clienteRequeste.getSexo();
+		this.dataNascimento = clienteRequeste.getDataNascimento();
+		this.cpf = clienteRequeste.getCpf();
+		this.aceitaTermos = clienteRequeste.getAceitaTermos();
 		this.dataHoraDoCadastro = LocalDateTime.now();
 
 	}
