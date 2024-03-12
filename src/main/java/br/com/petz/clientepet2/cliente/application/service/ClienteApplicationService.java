@@ -18,7 +18,7 @@ public class ClienteApplicationService implements ClienteService {
 	@Override
 	public ClienteResponse criaCliente(ClienteRequeste clienteRequeste) {
 		log.info("[inicia] ClienteApplicationService - criaCliente");
-		Cliente cliente = ClienteRepository.salva(new Cliente(clienteRequeste));
+		Cliente cliente = clienteRepository.salva(new Cliente(clienteRequeste));
 		log.info("[finaliza] ClienteApplicationService - criaCliente");
 		return  ClienteResponse.builder()
 		         .idCliente(cliente.getIdCliente())

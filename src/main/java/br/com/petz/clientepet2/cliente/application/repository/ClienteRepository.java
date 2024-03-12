@@ -4,12 +4,9 @@ import br.com.petz.clientepet2.cliente.domain.Cliente;
 
 public interface ClienteRepository {
 
-	
+	Cliente salva(Cliente cliente);
 
-	static Cliente salva(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	
 	}
