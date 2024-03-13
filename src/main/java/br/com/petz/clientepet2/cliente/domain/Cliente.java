@@ -48,7 +48,7 @@ public class Cliente {
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 
 	public Cliente(ClienteRequeste clienteRequeste) {
-		this.nomeComoleto = clienteRequeste.getNomeComoleto();
+		this.nomeComoleto = clienteRequeste.getNomeCompleto();
 		this.email = clienteRequeste.getEmail();
 		this.celular = clienteRequeste.getCelular();
 		this.telefone = clienteRequeste.getTelefone();
