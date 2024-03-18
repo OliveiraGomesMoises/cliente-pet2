@@ -1,6 +1,7 @@
 package br.com.petz.clientepet2.cliente.application.repository;
 
 import java.util.List;
+import java.util.UUID;
 
 import br.com.petz.clientepet2.cliente.domain.Cliente;
 
@@ -10,4 +11,7 @@ public interface ClienteRepository {
 
 	List<Cliente> buscaTodosClientes();
 
+	Cliente buscaClienteAtravesDoId(UUID idCliente);
+
+	
 }
